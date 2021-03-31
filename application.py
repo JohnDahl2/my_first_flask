@@ -10,12 +10,12 @@ posts = {
 }
 
 
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('home.jinja2', posts = posts)
 
 
-@app.route('/post/<int:post_id>')
+@application.route('/post/<int:post_id>')
 def post(post_id):
     """
     This function renders a template from the `templates` folder in the directory of app.py.
@@ -35,7 +35,7 @@ can only be gotten in a post request. A git requests leads
 '''
 
 
-@app.route('/post/create', methods=['GET', 'POST'])
+@application.route('/post/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
         title = request.form.get('title')# Creates a hidden payload. Uses method= "POST"
